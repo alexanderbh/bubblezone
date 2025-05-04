@@ -74,7 +74,7 @@ func (s *scanner) emit() {
 		delete(s.tracked, rid)
 	} else {
 		s.tracked[rid] = &ZoneInfo{
-			Id:        rid,
+			id:        rid,
 			iteration: s.iteration,
 			StartX:    ansi.PrintableRuneWidth(s.input[s.lastNewline:s.start]),
 			StartY:    s.newlines,

@@ -22,7 +22,7 @@ func TestValidPosition(t *testing.T) {
 
 	if xy.StartX != 4 || xy.StartY != 2 || xy.EndX != 12 || xy.EndY != 3 {
 		t.Errorf("got %#v, want %#v", xy, &ZoneInfo{
-			Id:        xy.Id,
+			id:        xy.id,
 			iteration: xy.iteration,
 			StartX:    4,
 			StartY:    2,
