@@ -209,8 +209,8 @@ func (m *Manager) zoneWorker() {
 			return
 		case xy := <-m.setChan:
 			m.zoneMu.Lock()
-			if xy.id != "" {
-				m.zones[m.GetReverse(xy.id)] = xy
+			if xy.Id != "" {
+				m.zones[m.GetReverse(xy.Id)] = xy
 			} else {
 				// Assume previous iterations are cleared.
 				for k := range m.zones {

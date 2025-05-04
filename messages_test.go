@@ -54,7 +54,7 @@ func TestAnyInBounds(t *testing.T) {
 	var contains bool
 	for _, msg := range m.received {
 		if evt, ok := msg.(MsgZoneInBounds); ok {
-			if evt.Zone.id == xy.id {
+			if evt.Zone.Id == xy.Id {
 				contains = true
 				break
 			}
@@ -105,7 +105,7 @@ func TestAnyInBoundsAndUpdate(t *testing.T) {
 	var contains bool
 	for _, msg := range m.received {
 		if evt, ok := msg.(MsgZoneInBounds); ok {
-			if evt.Zone.id == xy.id {
+			if evt.Zone.Id == xy.Id {
 				contains = true
 				break
 			}
