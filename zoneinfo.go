@@ -8,7 +8,7 @@ import tea "github.com/charmbracelet/bubbletea/v2"
 
 // ZoneInfo holds information about the start and end positions of a zone.
 type ZoneInfo struct { // nolint:revive
-	id        string // rid of the zone.
+	Id        string // rid of the zone.
 	iteration int    // The iteration of the zone, used for cleaning up old zones.
 
 	StartX int // StartX is the x coordinate of the top left cell of the zone (with 0 basis).
@@ -23,7 +23,7 @@ func (z *ZoneInfo) IsZero() bool {
 	if z == nil {
 		return true
 	}
-	return z.id == ""
+	return z.Id == ""
 }
 
 // InBounds returns true if the mouse event was in the bounds of the zones
