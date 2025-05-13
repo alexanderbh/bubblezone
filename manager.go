@@ -193,9 +193,9 @@ func (m *Manager) Get(id string) (zone *ZoneInfo) {
 	return zone
 }
 
-// GetReverse returns the component ID from a generated ID (that includes ANSI
+// getReverse returns the component ID from a generated ID (that includes ANSI
 // escape codes).
-func (m *Manager) GetReverse(id string) (resolved string) {
+func (m *Manager) getReverse(id string) (resolved string) {
 	m.idMu.RLock()
 	resolved = m.rids[id]
 	m.idMu.RUnlock()
@@ -210,7 +210,7 @@ func (m *Manager) zoneWorker() {
 		case xy := <-m.setChan:
 			m.zoneMu.Lock()
 			if xy.Id != "" {
-				m.zones[m.GetReverse(xy.Id)] = xy
+				m.zones[m.getReverse(xy.Id)] = xy
 			} else {
 				// Assume previous iterations are cleared.
 				for k := range m.zones {

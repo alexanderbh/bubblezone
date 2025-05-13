@@ -40,6 +40,23 @@ func (m *Manager) findInBounds(mouse tea.MouseMsg) []*ZoneInfo {
 	return zones
 }
 
+// IDsInBounds returns a list of IDs of zones that are in the bounds of the
+// provided mouse event.
+func (m *Manager) IDsInBounds(mouse tea.MouseMsg) []string {
+	var ids []string
+
+	m.zoneMu.RLock()
+	defer m.zoneMu.RUnlock()
+
+	for _, zone := range m.zones {
+		if zone.InBounds(mouse) {
+			ids = append(ids, m.getReverse(zone.Id))
+		}
+	}
+
+	return ids
+}
+
 // AnyInBoundsAndUpdate is the same as AnyInBounds; except the results of the calls
 // to Update() are carried through and returned.
 //
